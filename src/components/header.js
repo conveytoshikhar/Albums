@@ -1,22 +1,22 @@
 //Import Libraries for component
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, SafeAreaView } from 'react-native';
 
 //Make a component 
-const Header = () => {
+const Header = (props) => {
     const { textStyle, viewStyle } = styles;
     return (
-        <View style={viewStyle}>
-            <Text style={textStyle}>Albums</Text>
-        </View>
+        <SafeAreaView style={{ backgroundColor: '#fff' }}>
+            <View style={viewStyle}>
+                <Text style={textStyle}>{props.headerText}</Text>
+            </View>
+        </SafeAreaView>
     );
 };
 const styles = {
     viewStyle: {
-        paddingTop: 40,
-        paddingBottom: 20,
+        height: 60,
         backgroundColor: '#F8F8F8',
-        display: 'flex',
         justifyContents: 'flex-end', //vertical align 
         alignItems: 'center', //horizontal align 
         shadowColor: '#000',
