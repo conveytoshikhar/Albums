@@ -1,12 +1,15 @@
 import React from 'react';
-import { View, Text } from 'react-native';
-import axios from 'axios';
+import { Text } from 'react-native';
+import Card from './Card';
 
 const AlbumDetail = (props) => {
     const album = props.album; 
-
-    
-}
+    return (
+        <Card>
+            <Text>{album.title}</Text>
+        </Card>
+    );
+};
 
 
 export default AlbumDetail;
