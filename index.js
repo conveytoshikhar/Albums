@@ -6,7 +6,7 @@ import AlbumList from './src/components/AlbumList';
 //create a component
 const App = () => {
     return (
-        <View>
+        <View style={{ flex: 1, marginBottom: 10 }}>
             <Header headerText={'Albums'} />
             <AlbumList />
         </View>
