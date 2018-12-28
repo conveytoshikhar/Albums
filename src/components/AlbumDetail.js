@@ -4,18 +4,21 @@ import Card from './Card';
 import CardSection from './CardSection';
 
 const AlbumDetail = ({ album }) => {
-    const { title, artist, thumbnail_image } = album;
-    const { thumbNailStyle, headerContentStyle } = styles; //destructuring
+    const { title, artist, thumbnail_image, image } = album;
+    const { thumbnailStyle, headerContentStyle, thumbnailContainerStyle, headerTextStyle, albumImageStyle } = styles; //destructuring
     return (
         <Card>
             <CardSection>
-                <View>
-                    <Image style={thumbNailStyle} source={{ uri: thumbnail_image }} />
+                <View style={thumbnailContainerStyle}>
+                    <Image style={thumbnailStyle} source={{ uri: thumbnail_image }} />
                 </View>
                 <View style={headerContentStyle}>
-                    <Text>{title}</Text>
+                    <Text style={headerTextStyle}>{title}</Text>
                     <Text>{artist}</Text>
                 </View>  
+            </CardSection>
+            <CardSection>
+                <Image style={albumImageStyle} source={{ uri: image }} />
             </CardSection>
         </Card>
     );
@@ -24,12 +27,26 @@ const AlbumDetail = ({ album }) => {
 const styles = {
     headerContentStyle: {
        flexDirection: 'column',
-       justifyContent: 'space-around' 
+       justifyContent: 'space-around'
     },
-    thumbNailStyle: {
+    headerTextStyle: {
+        fontSize: 18,
+        fontWeight: 'bold'
+    },
+    thumbnailStyle: {
         height: 50,
         width: 50,
+    },
+    thumbnailContainerStyle: {
+        justifyContent: 'center',
+        alignContent: 'center',
+        marginLeft: 10,
         marginRight: 10
+    },
+    albumImageStyle: {
+        height: 300,
+        flex: 1,
+        width: null
     }
 };
 
